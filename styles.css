@@ -1,0 +1,346 @@
+/* Reset CSS */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Root variables for easy theming */
+:root {
+    --background-color: #1e1e1e;
+    --foreground-color: #e0e0e0;
+    --accent-color: #75282A;
+    --muted-color: #8e8e8e;
+    --input-background: #2b2b2b;
+    --input-border: #3a3a3a;
+    --error-color: #555555;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Mobile-first styles */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--foreground-color);
+}
+
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.option label {
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--foreground-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.option input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+}
+
+.slider-container input[type="range"] {
+    width: 100%;
+    appearance: none;
+    background: transparent;
+    outline: none;
+    margin: 0;
+}
+
+/* Style the slider track */
+.slider-container input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: var(--input-border);
+    border-radius: 2px;
+}
+
+.slider-container input[type="range"]::-moz-range-track {
+    height: 4px;
+    background: var(--input-border);
+    border-radius: 2px;
+}
+
+/* Style the slider thumb */
+.slider-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -6px;
+}
+
+.slider-container input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.slider-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.slider-value {
+    font-size: 16px;
+    color: var(--foreground-color);
+}
+
+.slider-feedback {
+    font-size: 14px;
+    color: var(--muted-color);
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: var(--accent-color);
+    color: var(--foreground-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5f1e1f;
+}
+
+#passwords {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.password-container {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.password-text {
+    font-size: 16px;
+    word-break: break-all;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--foreground-color);
+}
+
+.password-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copy-btn {
+    background-color: var(--accent-color);
+    color: var(--foreground-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+    background-color: #5f1e1f;
+}
+
+.strength-indicator {
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: var(--foreground-color);
+}
+
+/* Strength indicator colors */
+.strength-weak {
+    background-color: #FF6B6B; /* Bright red */
+    color: #fff;
+}
+
+.strength-fair {
+    background-color: #FFD93D; /* Bright yellow */
+    color: #000;
+}
+
+.strength-good {
+    background-color: #6BCB77; /* Bright green */
+    color: #000;
+}
+
+.strength-strong {
+    background-color: #4D96FF; /* Bright blue */
+    color: #fff;
+}
+
+.strength-very-strong {
+    background-color: #845EC2; /* Bright purple */
+    color: #fff;
+}
+
+.strength-extremely-strong {
+    background-color: #FF9671; /* Bright orange */
+    color: #000;
+}
+
+.strength-unbreakable {
+    background-color: #2C73D2; /* Deep blue */
+    color: #fff;
+}
+
+.error-message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--error-color);
+    color: var(--foreground-color);
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--muted-color);
+    font-size: 14px;
+}
+
+/* Toast notification styles */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+}
+
+.toast.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Media Queries */
+
+/* Tablets and larger */
+@media (min-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+
+    .option {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .slider-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .slider-info {
+        align-items: flex-end;
+    }
+
+    .btn {
+        font-size: 20px;
+        padding: 18px;
+    }
+
+    .copy-btn {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+}
+
+/* Laptops and larger */
+@media (min-width: 1024px) {
+    .container {
+        padding: 40px;
+    }
+
+    .btn {
+        font-size: 22px;
+        padding: 20px;
+    }
+
+    .copy-btn {
+        font-size: 18px;
+        padding: 12px 18px;
+    }
+
+    h2 {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+}
